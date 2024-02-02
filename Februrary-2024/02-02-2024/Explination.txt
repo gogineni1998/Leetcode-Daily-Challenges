@@ -1,0 +1,7 @@
+as you see the difference between and two valid numbers is 1111..(based on the number size)
+
+calculate the first valid number and than the process continumes from then on by adding 1111...
+
+time complexcity O(9 + 9 + 90) = O(180) = O(1)
+
+space complexcity O(1)
