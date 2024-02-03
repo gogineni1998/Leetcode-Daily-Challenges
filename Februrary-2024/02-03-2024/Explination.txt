@@ -1,0 +1,4 @@
+-> https://leetcode.com/problems/partition-array-for-maximum-sum/
+
+use recurtion to check all the sub-arrays sums
+and find maximum of them
