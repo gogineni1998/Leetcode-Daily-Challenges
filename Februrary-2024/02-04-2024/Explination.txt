@@ -1,0 +1,43 @@
+https://leetcode.com/problems/minimum-window-substring/description/
+
+The problem is to find the minimum window in string `s` which will contain all the characters of string `t` in any order. 
+
+Let's break down the solution step by step:
+
+1. **Initialization**: We first check if the length of string `s` is less than the length of string `t`. If it is, then it's impossible for `s` to contain all characters of `t`, so we return an empty string.
+
+2. **Create Frequency Maps**: We create two hash maps `hash_s` and `hash_t` to store the frequencies of characters in strings `s` and `t`, respectively. We iterate through string `t` and populate `hash_t` with the frequencies of each character.
+
+3. **Sliding Window Technique**: We use the sliding window technique to find the minimum window. We initialize variables `l` and `r` representing the left and right pointers of the window, respectively. We also initialize variables `count_s` and `count_t` to keep track of the number of characters in `s` and `t` that are currently in the window.
+
+4. **Expand Window**: We expand the window by moving the right pointer `r` until we include all characters of `t`. We update the frequencies in `hash_s` accordingly.
+
+5. **Shrink Window**: Once we have a window that contains all characters of `t`, we start shrinking the window from the left side while maintaining the condition that all characters of `t` remain in the window. We update the minimum window size and its indices (`i` and `j`) if we find a smaller window.
+
+6. **Repeat**: We continue this process until the right pointer `r` reaches the end of string `s`.
+
+7. **Return Result**: Finally, we return the minimum window substring of `s` containing all characters of `t`.
+
+This algorithm ensures that the window always contains all characters of `t` and finds the minimum window size that satisfies this condition.
+
+
+Let's analyze the time and space complexity of the provided solution:
+
+Time Complexity:
+- Creating frequency maps for strings `s` and `t`: This step requires traversing each character of both strings once, resulting in a time complexity of O(n), where n is the length of string `t`.
+- Sliding window technique: Moving the left and right pointers through string `s` requires traversing each character once, resulting in O(n) time complexity, where n is the length of string `s`.
+- Overall, the time complexity of the solution is O(n), where n is the length of string `s`.
+
+Space Complexity:
+- Two hash maps `hash_s` and `hash_t` are used to store the frequencies of characters in strings `s` and `t`, respectively. The space required for these hash maps is proportional to the number of unique characters in strings `s` and `t`, which is O(m + k), where m is the length of string `s`, and k is the length of string `t`. In the worst case, if all characters in `s` and `t` are unique, the space complexity would be O(m + k).
+- Additionally, a few integer variables and constants are used, which occupy constant space.
+- Thus, the overall space complexity of the solution is O(m + k).
+
+In summary:
+- Time complexity: O(n)
+- Space complexity: O(m + k)
+
+Where:
+- n is the length of string `s`.
+- m is the length of string `t`.
+- k is the number of unique characters in strings `s` and `t`.
