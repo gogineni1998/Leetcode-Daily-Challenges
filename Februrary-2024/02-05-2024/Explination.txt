@@ -1,0 +1,14 @@
+
+
+1. **Initialization of Array (hash):** We initialize an integer array `hash` of size 26. This array will be used to store the count of occurrences of each character in the string `s`. The reason for choosing size 26 is that we assume the string contains only lowercase English letters.
+
+2. **First Loop (Counting Occurrences):** We iterate through the given string `s` and count the occurrences of each character. For each character, we increment the count at the corresponding index in the `hash` array. We use `s.charAt(i) - 97` to convert the character to its corresponding index in the `hash` array. This operation makes use of ASCII values, as 'a' has ASCII value 97, 'b' has 98, and so on. So, by subtracting 97, we get the index of 'a' as 0, 'b' as 1, and so forth.
+
+3. **Second Loop (Finding the First Non-Repeating Character):** We iterate through the string `s` again. For each character, we check if its count in the `hash` array is equal to 1. If so, it means the character occurs only once in the string, making it the first non-repeating character. We return its index.
+
+4. **Time Complexity Analysis:** Let `n` be the length of the string `s`.
+   - The first loop runs in O(n) time since it iterates through the string once.
+   - The second loop also runs in O(n) time as it iterates through the string once.
+   - Therefore, the overall time complexity of this solution is O(n).
+
+So, this solution has a linear time complexity, making it efficient for large strings.
