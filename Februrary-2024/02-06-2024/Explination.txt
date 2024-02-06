@@ -1,0 +1,20 @@
+https://leetcode.com/problems/group-anagrams/description/
+
+This code is for grouping anagrams together from an array of strings. Anagrams are words that have the same characters but in a different order. 
+
+Here's a breakdown of the algorithm:
+
+1. It initializes a TreeMap `map` where the keys are sorted versions of the input strings, and the values are lists of strings that are anagrams of each other.
+2. It iterates through each string in the input array.
+3. For each string, it converts it to a character array, sorts the characters alphabetically, and then converts the sorted array back to a string.
+4. It checks if the sorted string exists as a key in the map.
+    - If it does, it adds the original string to the corresponding list.
+    - If it doesn't, it creates a new key-value pair with the sorted string as the key and a new list containing the original string as the value.
+5. Finally, it iterates through the entries of the map and adds the lists of anagrams to the result list.
+
+Time Complexity:
+- The time complexity of sorting each string is typically O(k log k), where k is the length of the longest string.
+- The loop iterates through each string in the input array, which takes O(n) time, where n is the number of strings.
+- So, the overall time complexity of this algorithm is O(n * k log k).
+
+Overall, the code effectively groups anagrams together with a time complexity that is dependent on the length of the strings and the number of strings in the input array.

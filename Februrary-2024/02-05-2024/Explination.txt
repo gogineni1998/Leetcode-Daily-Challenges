@@ -1,4 +1,4 @@
-
+https://leetcode.com/problems/first-unique-character-in-a-string/description
 
 1. **Initialization of Array (hash):** We initialize an integer array `hash` of size 26. This array will be used to store the count of occurrences of each character in the string `s`. The reason for choosing size 26 is that we assume the string contains only lowercase English letters.
 
