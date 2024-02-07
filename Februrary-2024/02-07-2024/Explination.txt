@@ -1,0 +1,25 @@
+This Java solution aims to sort characters in a string based on their frequency. Let's break down the algorithm step by step, along with its time complexity:
+
+1. **Counting Frequencies**: 
+   - A frequency array `hash` of size 128 is created to store the count of each character in the input string `s`. This step has a time complexity of O(n), where n is the length of the input string.
+
+2. **Creating TreeMap**:
+   - A TreeMap `map` is used to store the frequencies as keys and the characters having that frequency as values. TreeMap is chosen to ensure that the keys (frequencies) are sorted. 
+   - In the worst case, each character appears only once, so the size of the TreeMap could be at most the size of the alphabet (26 for lowercase English letters, 52 for both lowercase and uppercase, etc.). Inserting into a TreeMap has a time complexity of O(log n), where n is the number of elements already in the TreeMap. 
+   - Since the size of the TreeMap is bounded by a constant (the size of the alphabet), we can consider the overall complexity of this step as O(1).
+
+3. **Building the Sorted String**:
+   - Iterate through the TreeMap entries. For each entry, which contains a frequency and a list of characters, iterate through the characters in the list and append them to the result string `sb` the number of times equal to their frequency.
+   - In the worst case, where each character in the input string has a distinct frequency, this step will take O(nlogn) time because iterating through the TreeMap takes O(n) time (since there are at most n entries in the map), and for each entry, we may potentially iterate through all characters of the input string. However, since we are using a TreeMap, the insertion of entries will ensure they are sorted by frequency, so the innermost loop runs a maximum of n times.
+   
+4. **Reversing the Result String**:
+   - Reversing the string `sb` has a time complexity of O(n), where n is the length of the string.
+
+Overall, considering all steps, the time complexity of this solution is O(nlogn) due to the iteration through the TreeMap in step 3 being the dominating factor. The space complexity is O(n) due to the auxiliary data structures used (`hash` array and `map`).
+
+
+Time Complexcity :
+O(n)
+
+Space Complexcity :
+O(1) -- since the maximum size of the map will be 62 even for the larger testcases
