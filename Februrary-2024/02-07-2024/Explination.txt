@@ -1,3 +1,5 @@
+https://leetcode.com/problems/sort-characters-by-frequency/description/
+
 This Java solution aims to sort characters in a string based on their frequency. Let's break down the algorithm step by step, along with its time complexity:
 
 1. **Counting Frequencies**: 

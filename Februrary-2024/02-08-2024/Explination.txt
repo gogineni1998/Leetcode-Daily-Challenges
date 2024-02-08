@@ -1,0 +1,16 @@
+https://leetcode.com/problems/perfect-squares/description/
+
+This code is a solution to the problem of finding the minimum number of perfect square numbers which sum up to a given positive integer `n`. Here's a brief explanation of the algorithm:
+
+1. **Dynamic Programming Approach**: The code utilizes dynamic programming to efficiently solve the problem. It maintains a 2D array `dp` where `dp[ind][n]` represents the minimum number of perfect squares needed to sum up to `n`, considering only the first `ind` perfect square numbers.
+
+2. **Recursive Function**: The `countMin` function recursively calculates the minimum number of perfect squares required. It considers two possibilities at each step: either to take the current perfect square or not.
+
+3. **Base Cases**:
+   - If `ind` becomes negative, it means we have exhausted all the perfect square numbers, so return a large value to indicate it's not possible to form the sum.
+   - If `n` becomes 0, it means we have found a valid combination of perfect squares summing up to the target, so return 0.
+   - If the result for the current `ind` and `n` is already computed (memoized in `dp`), return it.
+
+4. **Main Function**: The `numSquares` function initializes the array `arr` containing perfect square numbers up to `size`, where `size` is the square root of `n`. It then initializes the `dp` array with -1. Finally, it calls the `countMin` function with the parameters and returns the result.
+
+5. **Time Complexity**: The time complexity of this solution is O(n * sqrt(n)), where `n` is the input integer. This is because there are `n` subproblems and each subproblem takes O(sqrt(n)) time to solve. The `sqrt(n)` factor comes from iterating over the perfect square numbers up to `size`, and the `n` factor comes from the depth of recursion in the worst case.
