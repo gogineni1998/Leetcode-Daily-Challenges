@@ -1,0 +1,28 @@
+This solution employs dynamic programming to find the maximum number of cherries that can be picked while moving from the top-left cell to the bottom-right cell, with two paths simultaneously. Here's an explanation along with the time complexity analysis:
+
+1. **Recursive Function:**
+   - The `getCherries` function is a recursive function that explores all possible paths from the top-left to the bottom-right cell.
+   - It takes parameters `(i, j1, j2, grid, dp)`, where `i` denotes the current row, `j1` and `j2` denote the columns for two people, `grid` is the grid containing cherries, and `dp` is the memoization array to store the results of subproblems.
+   - It returns the maximum number of cherries that can be collected following the rules specified in the problem statement.
+
+2. **Base Cases:**
+   - If either of the two persons goes out of the grid bounds, the function returns a large negative value, indicating that this path is invalid.
+   - If `i` reaches the last row (bottom-right cell), the function returns 0, indicating that no cherries can be picked further.
+
+3. **Memoization:**
+   - Before exploring any path, the function checks whether the result for the current state `(i, j1, j2)` is already computed and stored in the `dp` array. If it is, the function returns the result directly.
+   - This memoization step ensures that each subproblem is solved only once, reducing redundant computation and improving efficiency.
+
+4. **Exploration of Paths:**
+   - The function explores all possible moves for both persons from their current positions `(j1, j2)`.
+   - It calculates the number of cherries collected at the current step and recursively explores further paths.
+   - It keeps track of the maximum number of cherries obtained from all possible moves.
+
+5. **Time Complexity:**
+   - Let `n` be the number of rows in the grid (assuming the grid is a square grid).
+   - Since each cell `(i, j1, j2)` is visited at most once, and each visit involves constant-time operations, the time complexity of the recursive function without memoization is exponential, O(3^n).
+   - However, with memoization, each subproblem is solved only once, reducing the time complexity significantly.
+   - With memoization, the time complexity is bounded by the total number of unique subproblems, which is O(n^3) because there are `n` rows and two persons can be at any of the `n` columns.
+   - Hence, the time complexity of the solution is O(n^3).
+
+Therefore, the time complexity of the provided solution, employing dynamic programming with memoization, is O(n^3), where n is the number of rows (or columns) in the grid.

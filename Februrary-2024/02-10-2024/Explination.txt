@@ -1,0 +1,13 @@
+This solution aims to count all the palindromic substrings within a given string. Let's break down the algorithm and analyze its time complexity without the code:
+
+1. **Dynamic Programming Matrix:** The solution utilizes a 2D matrix `dp` to store whether substrings are palindromes or not. The dimensions of this matrix are `s.length()` by `s.length()`.
+
+2. **Initialization:** Initially, the algorithm initializes the diagonal and the elements adjacent to the diagonal to 1 because single characters are trivially palindromic. This initialization step takes O(n) time, where n is the length of the string `s`.
+
+3. **Iterative Palindrome Check:** After initialization, the algorithm iterates over the string `s` and checks substrings of lengths greater than 1 to determine if they are palindromes. This process is done using a nested loop. The outer loop controls the length of the substrings being checked (`n`), and the inner loop iterates over the string to check each substring. This step contributes O(n^2) time complexity.
+
+4. **Counting Palindromic Substrings:** Finally, the algorithm counts the number of palindromic substrings by summing up all the elements in the `dp` matrix that are equal to 1. This operation requires iterating over the entire matrix, which again takes O(n^2) time.
+
+5. **Total Time Complexity:** Combining the time complexities of all the steps, the overall time complexity of the solution is O(n) + O(n^2) + O(n^2), which simplifies to O(n^2). 
+
+Therefore, the time complexity of the provided solution is O(n^2), where n is the length of the input string `s`.

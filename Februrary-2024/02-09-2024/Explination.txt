@@ -1,0 +1,17 @@
+Sure, let's break down the solution step by step along with its time complexity analysis:
+
+1. **Sorting:** The first step is to sort the input array `nums`. Sorting the array takes O(n log n) time complexity, where n is the number of elements in the array.
+
+2. **Dynamic Programming:** After sorting, the solution uses dynamic programming to find the largest divisible subset. This involves iterating over the elements of the array twice.
+
+   a. **Initialization:** Initialize two arrays `dp` and `hash` of size `nums.length`. The `dp` array stores the length of the largest divisible subset ending at each index, and the `hash` array keeps track of the previous index in the subset. Initializing these arrays takes O(n) time.
+
+   b. **Dynamic Programming Loop:** The nested loop iterates over each pair of indices (i, j) such that j < i. For each pair, it checks if nums[i] is divisible by nums[j]. If it is, it updates the length of the largest divisible subset ending at index i (`dp[i]`) and updates the `hash` array accordingly. This nested loop takes O(n^2) time.
+
+   c. **Finding the Maximum Length and Corresponding Index:** After the dynamic programming loop, there is another loop to find the index of the maximum length in the `dp` array. This loop takes O(n) time.
+
+   d. **Constructing the Subset:** Finally, there is a while loop that constructs the largest divisible subset by tracing back using the `hash` array. This loop takes at most O(n) time since each index can be visited at most once.
+
+3. **Total Time Complexity:** Adding up the time complexities of each step, the overall time complexity of the solution is O(n log n) + O(n^2) + O(n) + O(n), which simplifies to O(n^2) due to the dominant term in the quadratic expression.
+
+Therefore, the time complexity of the provided solution is O(n^2), where n is the number of elements in the input array `nums`.

@@ -1,0 +1,14 @@
+This solution employs the Boyer-Moore Majority Vote algorithm to find the majority element in an array. Here's a breakdown of how it works and its time complexity:
+
+1. **Initialization:** It initializes two variables, `candidate` and `count`. The `candidate` variable represents the potential majority element, and `count` tracks the number of occurrences of the current candidate.
+
+2. **Main Loop:** It iterates through the array `nums`. For each element:
+   - If the count is zero, it updates the candidate to the current element because if the count is zero, it means that we have encountered a new element.
+   - If the current element matches the candidate, it increments the count.
+   - If the current element does not match the candidate, it decrements the count, effectively "cancelling out" one occurrence of the candidate with one occurrence of a non-candidate element.
+
+3. **Finding Majority Element:** At the end of the loop, the `candidate` variable holds the potential majority element.
+
+4. **Verification:** To verify if the `candidate` is indeed the majority element, a second loop could be run through `nums` to count the occurrences of `candidate`. This step would have a time complexity of O(n), making the total time complexity O(n).
+
+Therefore, the time complexity of this solution is O(n), where n is the number of elements in the input array `nums`. This is because it iterates through the array once, updating variables in constant time for each element.
