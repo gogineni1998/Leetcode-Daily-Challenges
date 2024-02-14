@@ -1,0 +1,21 @@
+This Java code defines a class `Solution` with a method `rearrangeArray` that takes an array of integers `nums` as input and rearranges it such that positive numbers appear before negative numbers while maintaining the order of both positive and negative numbers within their respective groups.
+
+Let's break down the code and its complexity:
+
+1. **Initialization**: The code initializes two ArrayLists, `positive` and `negative`, to hold positive and negative numbers from the input array, respectively. It also initializes an integer array `result` to store the rearranged array, with the same length as the input array.
+
+2. **Iteration through the input array**: The code iterates through the input array `nums`. For each element, if it's positive, it adds it to the `positive` list, otherwise to the `negative` list.
+
+3. **Merging positive and negative numbers**: After segregating positive and negative numbers, the code initializes variables `i` and `j` to track indices of the positive and negative lists, respectively. It also initializes an index variable `ind` to track the current index of the `result` array. Then, it iterates through both lists, alternately adding elements from each list into the `result` array until one of the lists is exhausted.
+
+4. **Adding remaining elements**: After merging, if any elements remain in either the `positive` or `negative` list, the code adds them to the `result` array.
+
+5. **Return**: Finally, the code returns the rearranged array `result`.
+
+**Time Complexity Analysis**:
+
+- Iterating through the input array: O(n), where n is the number of elements in the input array `nums`.
+- Merging positive and negative numbers: Since each positive and negative number is added to the `result` array exactly once, the time complexity for this step is O(n), where n is the size of the input array.
+- Adding remaining elements: If there are m positive and k negative numbers, the time complexity for adding remaining elements is O(m + k), but since m + k <= n (total number of elements), it's also O(n).
+
+Thus, the overall time complexity of the algorithm is O(n), where n is the size of the input array.

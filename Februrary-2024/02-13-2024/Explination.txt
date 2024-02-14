@@ -1,0 +1,24 @@
+Sure, let's break down the code and explain it step by step:
+
+1. **Class Declaration**: The code starts with a class named `Solution`.
+
+2. **Method Declaration**: Within the `Solution` class, there's a method named `firstPalindrome`, which takes an array of strings (`words`) as input and returns a string.
+
+3. **Iterating Over the Array**: The method begins by iterating over each element in the `words` array using a for loop. 
+
+4. **String Buffer Initialization**: Inside the loop, a `StringBuffer` named `sb` is initialized. `StringBuffer` is a mutable sequence of characters, which makes it suitable for modifying strings efficiently.
+
+5. **Copying Characters**: Another nested for loop iterates over each character in the current word (`words[i]`). Inside this loop, each character of the word is appended to the `StringBuffer` `sb`.
+
+6. **Palindrome Check**: After all characters of the current word are appended to `sb`, it is reversed using the `reverse()` method, and then converted to a string using `toString()`. The reversed string is compared with the original word (`words[i]`). If they are equal, it means the word is a palindrome.
+
+7. **Return**: If a palindrome word is found, it is returned immediately. If no palindrome word is found after iterating through all words, an empty string is returned.
+
+**Time Complexity**: Let's analyze the time complexity of the code. 
+
+- The outer loop runs `n` times, where `n` is the number of words in the input array.
+- The inner loop runs `m` times, where `m` is the length of the longest word in the input array.
+- Within the inner loop, appending characters to the `StringBuffer` takes constant time.
+- Reversing the `StringBuffer` and converting it to a string also take `O(m)` time.
+- Finally, comparing the reversed string with the original string also takes `O(m)` time.
+- So, the overall time complexity of the code is `O(n * m)`, where `n` is the number of words and `m` is the length of the longest word.
