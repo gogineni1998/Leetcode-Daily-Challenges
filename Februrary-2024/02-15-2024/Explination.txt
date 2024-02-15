@@ -1,0 +1,25 @@
+This Java code is implementing a method `largestPerimeter` in a class `Solution`. The method takes an array of integers `nums` as input and returns the largest perimeter possible from the elements of the array.
+
+Here's a detailed explanation of the code:
+
+1. `import java.util.Arrays;`: This imports the `Arrays` class from the `java.util` package, which is used for array manipulation, particularly sorting.
+
+2. `class Solution { ... }`: This defines a class named `Solution` which contains the method `largestPerimeter`.
+
+3. `public long largestPerimeter(int[] nums) { ... }`: This is the method declaration. It takes an array of integers `nums` as input and returns a `long` value, which represents the largest perimeter possible.
+
+4. `Arrays.sort(nums);`: This sorts the array `nums` in ascending order. Sorting is a common operation that often has a time complexity of O(n log n), where n is the number of elements in the array.
+
+5. `long sum = 0;`: This initializes a variable `sum` of type `long` to zero. This variable will be used to store the sum of elements in the array.
+
+6. `for(int i=0;i<nums.length;i++) { sum = sum + nums[i]; }`: This loop iterates through all elements of the array `nums` and calculates their sum. This loop has a time complexity of O(n), where n is the number of elements in the array.
+
+7. `for(int i=nums.length-1;i>=2;i--) { ... }`: This loop starts from the end of the sorted array and iterates backwards. It checks for the largest possible perimeter by trying to form a triangle with the largest three elements. The loop continues until it finds a valid triangle or until it exhausts the array. The condition `i>=2` ensures that there are at least three elements remaining to form a triangle.
+
+8. `if(nums[i] < sum - nums[i]) { return sum; }`: This condition checks if the current element (`nums[i]`) can be part of a valid triangle. If `nums[i]` is less than the sum of the other two elements (`sum - nums[i]`), then it's possible to form a triangle. In this case, the method returns the sum, which represents the largest perimeter possible.
+
+9. `sum = sum - nums[i];`: If the current element cannot form a valid triangle, it's removed from consideration by subtracting it from the sum.
+
+10. `return -1;`: If no valid triangle can be formed from the array, the method returns `-1`, indicating that there's no valid perimeter.
+
+The time complexity of this algorithm is dominated by the sorting operation, which is O(n log n), where n is the number of elements in the array. The subsequent loop has a time complexity of O(n), resulting in a total time complexity of O(n log n) for the entire algorithm.
