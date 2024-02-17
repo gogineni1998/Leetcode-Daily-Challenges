@@ -1,0 +1,27 @@
+This Java code aims to find the furthest building that can be climbed using either bricks or ladders. Here's a breakdown of how it works:
+
+1. The function `furthestBuilding` takes three parameters: an array `heights` containing the heights of the buildings, an integer `bricks` representing the number of bricks available, and an integer `ladders` representing the number of ladders available.
+
+2. It initializes a `PriorityQueue` called `pq` to store the differences in heights between adjacent buildings.
+
+3. It initializes a variable `res` to keep track of the furthest building that can be climbed.
+
+4. It iterates through the `heights` array starting from the second building (`i=1`).
+
+5. Within the loop, it checks if the height difference between the current building and the previous one is positive (indicating that the current building is taller).
+
+6. If there are enough bricks (`bricks >= heights[i] - heights[i-1]`), it adds the negative of the height difference to the priority queue (multiplied by -1 for max heap property) and subtracts the used bricks from the `bricks` count.
+
+7. If there are not enough bricks but there are ladders available (`ladders > 0`), it uses a ladder by decrementing `ladders`, adding the negative of the height difference to the priority queue, and adjusting the available bricks by removing the largest previously used height difference from the priority queue and adding the current one.
+
+8. If neither enough bricks nor ladders are available, it breaks out of the loop.
+
+9. Regardless of the conditions, it updates the `res` variable to the current index `i`.
+
+10. Finally, it returns the furthest reachable building index stored in `res`.
+
+Time Complexity:
+- The time complexity of this algorithm is O(N log k), where N is the number of buildings and k is the number of ladders available.
+- The loop iterates through each building once, which contributes O(N) to the time complexity.
+- Within the loop, the priority queue operations (add and poll) take O(log k) time, where k is the number of ladders.
+- Therefore, the overall time complexity is O(N log k).
