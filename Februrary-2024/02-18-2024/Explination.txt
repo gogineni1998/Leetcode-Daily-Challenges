@@ -1,0 +1,35 @@
+Certainly! This code seems to be implementing a solution to a problem related to scheduling meetings and finding the room with the most booked meetings. Let's break down the solution:
+
+1. **Input**:
+   - `n`: Total number of meeting rooms available.
+   - `meetings`: An array of meetings, where each meeting is represented by a pair of integers `[start_time, end_time]`.
+
+2. **Approach**:
+   - The solution uses two priority queues (`pq_a` and `pq_u`) to manage the rooms and their availability.
+   - `pq_a`: Priority queue for available rooms sorted by the end time of the current meeting in the room.
+   - `pq_u`: Priority queue for used rooms sorted by the end time of the current meeting in the room.
+   - Initially, all rooms are available, so they are added to `pq_a` with end time 0.
+
+3. **Sorting Meetings**:
+   - Meetings are sorted based on their start times in ascending order using `Arrays.sort()`.
+
+4. **Main Loop**:
+   - Iterate through each meeting.
+   - For each meeting, check if there are any rooms available (`pq_a`).
+     - If available, allocate the meeting to the room with the earliest available end time (`pq_a`).
+     - If not available, allocate the meeting to the room that will be available earliest (`pq_u`). Update the end time of the room accordingly.
+
+5. **Counting Meetings**:
+   - Maintain an array `rooms[]` to keep track of the number of meetings booked for each room.
+   - Increment the count of meetings for the allocated room.
+
+6. **Finding Most Booked Room**:
+   - After processing all meetings, find the room with the maximum number of booked meetings.
+
+7. **Output**:
+   - Return the room number with the maximum bookings.
+
+8. **Room Class**:
+   - Defines a simple class `Room` to represent a room with its room number and the end time of the current meeting.
+
+Overall, this solution efficiently assigns meetings to rooms and finds the room with the most bookings by using priority queues to manage room availability and tracking bookings.
