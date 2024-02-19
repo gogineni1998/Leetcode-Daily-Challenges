@@ -1,0 +1,17 @@
+This solution determines whether an integer `n` is a power of two. Let's break it down step by step:
+
+1. `n > 0`: This condition checks if `n` is a positive integer. Since a power of two must be a positive integer, this condition ensures that `n` is greater than zero.
+
+2. `(n & (n - 1)) == 0`: This part checks whether `n` is a power of two. Here's how it works:
+
+   - When you subtract 1 from a power of two, you get a number with all the bits flipped from the least significant bit up to and including the first set bit. For example:
+     - If `n` is 4 (100 in binary), then `n - 1` is 3 (011 in binary).
+     - If `n` is 8 (1000 in binary), then `n - 1` is 7 (0111 in binary).
+   
+   - When you perform a bitwise AND operation (`&`) between `n` and `n - 1`, if the result is 0, it means that `n` has only one bit set, indicating it's a power of two. This is because when you have a power of two, there's only one bit set in its binary representation, and subtracting 1 removes that bit, leaving all lower bits set to 1. The bitwise AND operation between `n` and `n - 1` will then result in all zeros if `n` is a power of two.
+   
+   - Example:
+     - If `n` is 4 (100 in binary), then `(n & (n - 1))` becomes `(100 & 011)`, which equals 0.
+     - If `n` is 8 (1000 in binary), then `(n & (n - 1))` becomes `(1000 & 0111)`, which equals 0.
+
+So, combining both conditions, the function checks if `n` is a positive integer and has only one bit set, indicating it's a power of two. If both conditions are true, it returns `true`; otherwise, it returns `false`.
