@@ -1,0 +1,36 @@
+Sure, let's break down the code and explain its functionality along with the time complexity of each part.
+
+### Explanation of the Solution Class:
+
+#### `getPrimes` Method:
+- This method generates prime numbers up to a given number `num` and stores them in the `primes` list.
+- It uses the Sieve of Eratosthenes algorithm to efficiently find prime numbers.
+- Time Complexity: O(n log log n), where n is the value of `num`.
+
+#### `canTraverseAllPairs` Method:
+- This method checks whether all pairs of numbers in the `nums` array can be traversed.
+- It initializes a `map` to store prime factors of numbers, a `primes` list to store prime numbers, and finds the maximum number in `nums`.
+- Then, it calculates the square root of the maximum number to limit the range for finding primes.
+- Next, it populates the `map` with prime factors of each number in `nums`.
+- Finally, it checks if all numbers in `nums` belong to the same disjoint set using the `DisJointSet` class.
+- Time Complexity: O(n log log n + k), where n is the length of `nums` and k is the number of distinct prime factors of the numbers in `nums`.
+
+### Explanation of the DisJointSet Class:
+
+#### Constructor:
+- Initializes `parent` and `rank` lists for disjoint set operations.
+- Time Complexity: O(n), where n is the number of nodes.
+
+#### `getUltimateParent` Method:
+- Finds the ultimate parent (representative) of a node using path compression.
+- Time Complexity: O(log n), where n is the number of nodes.
+
+#### `addEdge` Method:
+- Joins two disjoint sets by their ultimate parents based on rank.
+- Time Complexity: O(log n), where n is the number of nodes.
+
+### Overall Time Complexity:
+- The overall time complexity of the `canTraverseAllPairs` method depends on the time complexity of `getPrimes` and the disjoint set operations.
+- Assuming `getPrimes` dominates, the overall time complexity is O(n log log n), where n is the maximum number in the `nums` array.
+
+This analysis provides an understanding of how the code works and estimates its performance under different scenarios.

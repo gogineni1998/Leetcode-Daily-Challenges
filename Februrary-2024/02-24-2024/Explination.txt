@@ -1,0 +1,37 @@
+This Java code aims to find all the people who can meet with the first person given a series of meetings. Let's break down the code along with its time complexity analysis.
+
+1. **Explanation of Classes**:
+   - `Solution`: Contains the main logic to find all people who can meet with the first person.
+   - `DisJointSet`: Implements the disjoint-set data structure with methods to find ultimate parent, set back, and add edge operations.
+
+2. **`findAllPeople` Method**:
+   - Parameters: 
+     - `n`: Number of people.
+     - `meetings`: 2D array representing meetings with three columns: [person1, person2, meeting_time].
+     - `firstPerson`: The person with whom we want to find all possible meetings.
+   - The method sorts meetings based on their time in ascending order.
+   - Initializes a `TreeSet` to store the result, ensuring uniqueness and ordered output.
+   - Creates a `DisJointSet` object to manage the relationships between people.
+   - Adds the first person to the disjoint set and result set.
+   - Iterates through meetings:
+     - Adds edges between people who participate in the current meeting.
+     - Updates the result set with people who can meet with the first person.
+   - Returns the final list of people who can meet with the first person.
+
+3. **`DisJointSet` Class**:
+   - Implements a disjoint-set data structure to manage relationships between people.
+   - Operations:
+     - `getUltimateParent`: Finds the ultimate parent of a person.
+     - `setBack`: Resets a person's parent to itself.
+     - `addEdge`: Adds an edge between two people, updating their ultimate parents and ranks.
+
+4. **Time Complexity Analysis**:
+   - Sorting meetings: O(M log M), where M is the number of meetings.
+   - Initializing DisJointSet: O(N), where N is the number of people.
+   - Iterating through meetings: O(M), where M is the number of meetings.
+     - Within this loop:
+       - `getUltimateParent` and `setBack` operations in DisJointSet: O(log N) amortized.
+       - `addEdge` operation in DisJointSet: O(log N) amortized.
+   - Overall time complexity: O(M log M + M log N), where N is the number of people and M is the number of meetings.
+
+This code efficiently finds all people who can meet with the first person using disjoint-set union operations, ensuring a time complexity that scales well with the number of meetings and people.
